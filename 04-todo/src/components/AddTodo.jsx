@@ -8,6 +8,7 @@ const AddTodo = ({ handleAddTask }) => {
     let task = {
       id: Date.now(),
       title: taskValue,
+      completed: false,
     };
     handleAddTask(task);
     setTaskValue("");

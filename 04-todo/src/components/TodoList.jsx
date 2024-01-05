@@ -1,9 +1,24 @@
-const TodoList = ({ tasks, handleDeleteTask }) => {
+const TodoList = ({ tasks, handleDeleteTask, handleCompleted }) => {
   return (
     <div>
       {tasks.map((task) => (
         <div key={task.id} className="flex justify-between m-3">
-          <h3>{task.title}</h3>
+          <input
+            type="checkbox"
+            checked={task.completed}
+            onChange={() => handleCompleted(task.id)}
+          />
+          {task.completed ? (
+            <h3>
+              <del>{task.title}</del>
+            </h3>
+          ) : (
+            <h3>{task.title}</h3>
+          )}
+
+          <button className="bg-blue-500 px-2 py-1 rounded-md font-semibold hover:bg-blue-700 hover:text-white duration-300">
+            Update
+          </button>
           <button
             className="bg-red-500 px-2 py-1 rounded-md font-semibold hover:bg-red-700 hover:text-white duration-300"
             onClick={() => handleDeleteTask(task.id)}>
