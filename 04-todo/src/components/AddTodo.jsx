@@ -9,6 +9,7 @@ const AddTodo = ({ handleAddTask }) => {
       id: Date.now(),
       title: taskValue,
       completed: false,
+      isEditing: false,
     };
     handleAddTask(task);
     setTaskValue("");
@@ -20,6 +21,7 @@ const AddTodo = ({ handleAddTask }) => {
         type="text"
         className="border border-blue-500 flex-1 px-2"
         placeholder="Enter the task"
+        autoFocus
         value={taskValue}
         onChange={(e) => setTaskValue(e.target.value)}
       />

@@ -7,13 +7,13 @@ const todoData = [
     id: 1,
     title: "Wake up at 5am",
     completed: false,
-    edit: false,
+    isEditing: false,
   },
   {
     id: 2,
     title: "Exercise up at 5:15am",
     completed: false,
-    edit: false,
+    isEditing: false,
   },
 ];
 
@@ -35,14 +35,34 @@ const App = () => {
     setTasks(updatedTasks);
   };
 
+  const handleEditing = (id) => {
+    const editedTasks = tasks.map((task) =>
+      task.id === id ? { ...task, isEditing: !task.isEditing } : task
+    );
+    setTasks(editedTasks);
+  };
+
+  const handleUpdatedTask = (id, latestTask) => {
+    console.log(id, latestTask);
+    const updatedTaskArray = tasks.map((task) =>
+      task.id === id
+        ? { ...task, title: latestTask, isEditing: !task.isEditing }
+        : task
+    );
+    console.log(updatedTaskArray);
+    setTasks(updatedTaskArray);
+  };
+
   return (
     <section className="">
-      <div className=" max-w-96 mx-auto mt-72">
+      <div className=" max-w-[500px] mx-auto mt-72">
         <AddTodo handleAddTask={handleAddTask} />
         <TodoList
           tasks={tasks}
           handleDeleteTask={handleDeleteTask}
           handleCompleted={handleCompleted}
+          handleEditing={handleEditing}
+          handleUpdatedTask={handleUpdatedTask}
         />
       </div>
     </section>
