@@ -9,7 +9,7 @@ const ColorInput = ({ changeColor }) => {
   };
 
   return (
-    <div className="flex justify-center mt-28 my-20 ">
+    <div className="flex justify-center mt-32 my-20 ">
       <form onSubmit={handleColor}>
         <label className="text-2xl me-4 font-semibold">Input color</label>
         <input

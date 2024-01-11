@@ -1,13 +1,16 @@
+import { toast } from "sonner";
+
 const SingleShade = ({ value, index }) => {
   const saveToClipboard = async () => {
     if (navigator.clipboard) {
       try {
         await navigator.clipboard.writeText(`#${value.hex}`);
+        toast.success("Color copied to clipboard");
       } catch (error) {
-        alert("Failed to copy color to clipboard");
+        toast.error("Failed to copy color to clipboard");
       }
     } else {
-      alert("Failed to copy color to clipboard");
+      toast.error("Failed to copy color to clipboard");
     }
   };
   return (

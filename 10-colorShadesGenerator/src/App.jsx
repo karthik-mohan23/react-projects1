@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Values from "values.js";
+import { Toaster } from "sonner";
 import ColorInput from "./ColorInput";
 import ColorShades from "./ColorShades";
 
@@ -19,6 +20,7 @@ const App = () => {
     <div>
       <ColorInput changeColor={changeColor} />
       <ColorShades colorValues={colorValues} />
+      <Toaster richColors position="top-center" />
     </div>
   );
 };
