@@ -9,7 +9,7 @@ const BgChanger = () => {
 
   return (
     <div
-      className={`min-h-screen w-full relative`}
+      className={`min-h-screen w-full relative duration-500`}
       style={{ background: bgColor }}>
       <div className=" w-80 h-28 rounded-lg bg-white absolute bottom-5 left-1/2  -translate-x-1/2  ">
         <div className=" flex justify-between p-5">
